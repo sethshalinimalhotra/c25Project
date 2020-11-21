@@ -13,16 +13,15 @@ function preload()
 
 function setup() {
 	createCanvas(800, 700);
-background(230);
+
 
 	engine = Engine.create();
 	world = engine.world;
 
-	//Create the Bodies Here.
-	paper = new Paper(100,450,70);
+	//creating paper , dustbin and  ground
+	paper = new Paper(100,450,40);
 	dustbin = new Dustbin();
 	ground = new Ground(width/2, 670, width, 20);
-	
 	
 	
 	Engine.run(engine);
@@ -31,21 +30,19 @@ background(230);
 
 
 function draw() {
-	background("white");
   rectMode(CENTER);
-  background(0);
+  background(230);
+  ground.display();
   paper.display();
   dustbin.display();
-  ground.display();
-  
   drawSprites();
  
 }
-
+//if up arrow key is pressed apply force to paper
 function keyPressed() {
 	if (keyCode === UP_ARROW) {
 
-	  Matter.Body.applyForce(paper.body,paper.body.position,{x:80,y:-80});
+	  Matter.Body.applyForce(paper.body,paper.body.position,{x:25,y:-25});
   
 	}
 }

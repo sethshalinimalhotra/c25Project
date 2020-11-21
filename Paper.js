@@ -8,7 +8,7 @@ class Paper{
         };
         this.body = Bodies.circle(x,y,radius/2,options);
         this.radius = radius/2;
-        this.image = loadImage("paper1.png");
+        this.image = loadImage("paper.png");
         World.add(world,this.body);
 
     }
@@ -19,6 +19,7 @@ class Paper{
         translate(pos.x,pos.y);
         rotate(angle);
         imageMode(CENTER);
+        //display paper image
         image(this.image,0,0,50,80);
         pop();
     }
